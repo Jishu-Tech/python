@@ -1,1 +1,49 @@
+1)	Calculate the marks of the student 
+Ans:
+s1 = float(input("Enter marks of subject 1: "))
+s2 = float(input("Enter marks of subject 2: "))
+s3 = float(input("Enter marks of subject 3: "))
+s4 = float(input("Enter marks of subject 4: "))
+s5 = float(input("Enter marks of subject 5: "))
+total = s1 + s2 +s3 +s3 +s4 + s5
+percentage = total / 5
+print("Aggregate Marks =", total)
+print("Percentage =", percentage, "%")
+2)Convert the temperature to Ferna hit to centigrade
+    Ans:
+     f = float(input("Enter temperature in Fahrenheit: "))
+     c = (5/9) * (f - 32)
+     print("Temperature in Centigrade =", c)
+3)Ramesh’s basic salary is input through the keyboard .his dearness allowance is 40% of basic salary and his dearness allowness is 30% of basic salary and house rent allowance is 20 % of basic salary .write a programme to calculate calculate the gross salary.
+  Ans:
+   basic = float(input("Enter Basic Salary: "))
+   da = 0.40 * basic
+   hra = 0.20 * basic
+   gross_salary = basic + da + hra
+   print("Dearness Allowance =", da)
+   print("House Rent Allowance =", hra)
+   print("Gross Salary =", gross_salary)
+4)A cashier has currency notes dolomitization 10,50 and 100 . If the amount to be withdrawn is input through the keyboard in hundreds find the total number of currency notes of each denotation the  cashier will have to give wuthdrawar.
+Ans:
+ammount=int(input("Enter a ammount to withdraw:"))
+hundred = ammount//100
+ammount=ammount % 100
+fifty= ammount // 50
+ammount = ammount % 50
+ten = ammount //10
+print("number of 100 notes=",hundred)
+print("number of 50 notes=",fifty)
+print("number of 10 notes=",ten)
+5) If a five  digit number is input through the key board write a program to print a new number by adding one to each of its digit.
+Ans:
+     num=int(input("Enter a number of five digit:"))
+result = 0
+place = 1
+while num>0:
+  digit=num%10
+  new_digit=(digit+1)%10
+  result = result + new_digit * place
+  place = place * 10
+  num =num//10
+print("new number=",result)
 

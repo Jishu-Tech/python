@@ -1,0 +1,53 @@
+1)	Given a list of integer, generate all the possible leads the result from removing exactly one element from the original list
+Ans:
+        nums=list(map(int,input("Enter numbers:").split()))
+        result=[]
+        for i in range(len(nums)):
+                 new_list=nums[:i]+nums[i+1:]
+                 result.append(new_list)
+       print(result)
+2)	Suppose you receive daily sales data for several product over n days .The data is separated as a list of list. Each in a list for response to a day and content sales number different product
+Ans:
+        days = int(input())
+        products = int(input())
+data = []
+for _ in range(days):
+            data.append(list(map(int, input().split())))
+totals = [0]*products
+       for row in data:
+   	      for i in range(products):
+                   totals[i] += row[i]
+      print("Totals:", totals)
+      print("Max sale:", max(totals))
+      print ("Min sale:", min(totals))
+3)	Given to list of equal length A and B write a program that rotates lift a my Sam number of position k then March with my adding corresponding element and finally return resulting list .
+Ans:
+ A = input().split()
+B = input().split()
+k = int(input())
+# convert to int
+A = [int(x) for x in A]
+B = [int(x) for x in B]
+k = k % len(A)
+# rotate right
+A = A[-k:] + A[:-k]
+# merge and add
+result = [A[i] + B[i] for i in range(len(A))]
+print(result)
+4)	Given a long list of number representing say daily measurement implement a ceiling window algorithm  for a window size k compute for each window possible the average and variance of the number of that window.
+Ans:
+       nums = input("Enter numbers: ").split()
+k = int(input("Enter window size k: "))
+result = []
+for i in range(len(nums)):
+    nums[i]=float(nums[i])
+for i in range(len(nums)-k+1):
+    window=nums[i:i+k]
+    avg=sum(window)/k
+    var=0
+    for x in window:
+        var+=(x-avg)**2
+    var=var/k
+    result.append((avg,var))
+
+print("Output:", result)

@@ -1,0 +1,100 @@
+1) Given two string S1 and S2 new stream by taking character alternately first character of S1 then last character of S2 Then second character of S1 then second last of S2  and so on. If one string with longer append the left over character at the end.
+Ans :
+      s1 = input("Enter first string: ")
+s2 = input("Enter second string: ")
+result = ""
+i = 0
+j = len(s2) - 1
+# take alternately
+while i < len(s1) and j >= 0:
+    result += s1[i]
+    result += s2[j]
+    i += 1
+    j -= 1
+# leftover from s1 (normal order)
+while i < len(s1):
+    result += s1[i]
+    i += 1
+# leftover from s2 (reversed order)
+while j >= 0:
+    result += s2[j]
+    j -= 1
+print(result)
+
+2)	Give a string that may contain letter digit space etc. extract all digit character, read them as number (single digits) then computer and output:(1) their sum (2) their average (3) Their maximum digit (4) there minimum digit.  if no digit prints an appropriate message.
+Ans:
+     text = input("Enter a string: ")
+digits = []
+for ch in text:
+    if ch.isdigit():
+        digits.append(int(ch))
+if len(digits) == 0:
+    print("No digits found")
+else:
+    total = sum(digits)
+    average = total / len(digits)
+    maximum = max(digits)
+    minimum = min(digits)
+    print("Sum:", total)
+    print("Average:", average)
+    print("Maximum:", maximum)
+    print("Minimum:", minimum)
+
+
+
+
+
+
+
+
+
+3)	Give two string a and b test whether a is balanced in be that is weather all character in a appear same where in b. Then print True or False . Optionally also  Print which character of  a are missing in b
+Ans: 
+                    a=input("Enter string a:")
+b=input("Enter string b:")
+missing = []
+for ch in a:
+  if ch not in b:
+    missing.append(ch)
+
+if len(missing)==0:
+  print("true")
+else:
+  print("false")
+  print("missing:","".join(missing))
+	
+4)”longest increasing -Digit – sum substring(contiguous)”
+    given a string of positive- integer number separated by space treat each number as an integer compute the digit-sum of each number then find the longest contiguous subsequence where each numbers digit sum is strictly greater then previous number digit sum .print the subsequence and its length 
+Ans :
+nums = input().split()
+def digit_sum(x):
+    total = 0
+    for ch in x:
+        total += int(ch)
+    return total
+longest = []
+current = [nums[0]]
+for i in range(1, len(nums)):
+    if digit_sum(nums[i]) > digit_sum(nums[i-1]):
+        current.append(nums[i])
+    else:
+        if len(current) > len(longest):
+            longest = current
+        current = [nums[i]]
+# last block check
+if len(current) > len(longest):
+    longest = current
+print("Subsequence:", " ".join(longest))
+print("Length:", len(longest))
+
+5)Given a list of string(words). Group them by engram equivalence I’e output a list of group where each group contain words that are anagrams of each other words do not match any other stay alone  
+Ans :
+        words = input("Enter words separated by space: ").split()
+        groups = {}
+       for word in words:
+            key = "".join(sorted(word))   # sorted form
+            if key not in groups:
+                 groups[key] = []
+            groups[key].append(word)
+      result = list(groups.values())
+      print(result)
